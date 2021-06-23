@@ -12,12 +12,27 @@
 		332000052682EE27001809AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332000032682EE27001809AA /* Main.storyboard */; };
 		332000072682EE2B001809AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332000062682EE2B001809AA /* Assets.xcassets */; };
 		3320000A2682EE2B001809AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332000082682EE2B001809AA /* LaunchScreen.storyboard */; };
-		332000182682EFB5001809AA /* ADCBGamification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332000142682EFB4001809AA /* ADCBGamification.xcframework */; };
 		332000192682EFB5001809AA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 332000152682EFB4001809AA /* README.md */; };
 		3320001A2682EFB5001809AA /* ADCBGamification.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 332000162682EFB4001809AA /* ADCBGamification.podspec */; };
 		3320001B2682EFB5001809AA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 332000172682EFB4001809AA /* LICENSE */; };
+		3320001D2682EFDF001809AA /* ADCBGamification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332000142682EFB4001809AA /* ADCBGamification.xcframework */; };
+		3320001E2682EFDF001809AA /* ADCBGamification.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 332000142682EFB4001809AA /* ADCBGamification.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3320FFFE2682EE27001809AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3320FFFD2682EE27001809AA /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3320001F2682EFDF001809AA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3320001E2682EFDF001809AA /* ADCBGamification.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		332000012682EE27001809AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				332000182682EFB5001809AA /* ADCBGamification.xcframework in Frameworks */,
+				3320001D2682EFDF001809AA /* ADCBGamification.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +105,7 @@
 				3320FFF62682EE27001809AA /* Sources */,
 				3320FFF72682EE27001809AA /* Frameworks */,
 				3320FFF82682EE27001809AA /* Resources */,
+				3320001F2682EFDF001809AA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
