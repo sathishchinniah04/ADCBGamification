@@ -1,0 +1,11 @@
+framework module ADCBGamification {
+  umbrella header "ADCBGamification.h"
+
+  export *
+  module * { export * }
+}
+
+module ADCBGamification.Swift {
+    header "ADCBGamification-Swift.h"
+    requires objc
+}

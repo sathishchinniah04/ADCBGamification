@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,10 @@
 		332000052682EE27001809AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332000032682EE27001809AA /* Main.storyboard */; };
 		332000072682EE2B001809AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332000062682EE2B001809AA /* Assets.xcassets */; };
 		3320000A2682EE2B001809AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 332000082682EE2B001809AA /* LaunchScreen.storyboard */; };
+		332000182682EFB5001809AA /* ADCBGamification.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332000142682EFB4001809AA /* ADCBGamification.xcframework */; };
+		332000192682EFB5001809AA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 332000152682EFB4001809AA /* README.md */; };
+		3320001A2682EFB5001809AA /* ADCBGamification.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 332000162682EFB4001809AA /* ADCBGamification.podspec */; };
+		3320001B2682EFB5001809AA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 332000172682EFB4001809AA /* LICENSE */; };
 		3320FFFE2682EE27001809AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3320FFFD2682EE27001809AA /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +25,10 @@
 		332000062682EE2B001809AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		332000092682EE2B001809AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3320000B2682EE2B001809AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		332000142682EFB4001809AA /* ADCBGamification.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ADCBGamification.xcframework; sourceTree = SOURCE_ROOT; };
+		332000152682EFB4001809AA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		332000162682EFB4001809AA /* ADCBGamification.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = ADCBGamification.podspec; sourceTree = SOURCE_ROOT; };
+		332000172682EFB4001809AA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		3320FFFA2682EE27001809AA /* ADCBGamificationPod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADCBGamificationPod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3320FFFD2682EE27001809AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3320FFFF2682EE27001809AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				332000182682EFB5001809AA /* ADCBGamification.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +65,10 @@
 		3320FFFC2682EE27001809AA /* ADCBGamificationPod */ = {
 			isa = PBXGroup;
 			children = (
+				332000162682EFB4001809AA /* ADCBGamification.podspec */,
+				332000142682EFB4001809AA /* ADCBGamification.xcframework */,
+				332000172682EFB4001809AA /* LICENSE */,
+				332000152682EFB4001809AA /* README.md */,
 				3320FFFD2682EE27001809AA /* AppDelegate.swift */,
 				3320FFFF2682EE27001809AA /* SceneDelegate.swift */,
 				332000012682EE27001809AA /* ViewController.swift */,
@@ -124,8 +137,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3320001B2682EFB5001809AA /* LICENSE in Resources */,
 				3320000A2682EE2B001809AA /* LaunchScreen.storyboard in Resources */,
 				332000072682EE2B001809AA /* Assets.xcassets in Resources */,
+				332000192682EFB5001809AA /* README.md in Resources */,
+				3320001A2682EFB5001809AA /* ADCBGamification.podspec in Resources */,
 				332000052682EE27001809AA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,7 +232,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -287,15 +303,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2PFLFZZ6ZC;
 				INFOPLIST_FILE = ADCBGamificationPod/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SIXD.ADCBGamificationPod;
+				PRODUCT_BUNDLE_IDENTIFIER = Indosat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,15 +322,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2PFLFZZ6ZC;
 				INFOPLIST_FILE = ADCBGamificationPod/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SIXD.ADCBGamificationPod;
+				PRODUCT_BUNDLE_IDENTIFIER = Indosat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

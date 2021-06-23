@@ -1,0 +1,563 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ADCBGamification
+@_exported import ADCBGamification
+import CoreGraphics
+import Foundation
+import QuartzCore
+import Swift
+import UIKit
+extension IQKeyboardManager {
+  @objc dynamic public func reloadInputViews()
+}
+extension IQKeyboardManager {
+  @objc dynamic public var canGoPrevious: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var canGoNext: Swift.Bool {
+    @objc get
+  }
+  @discardableResult
+  @objc dynamic public func goPrevious() -> Swift.Bool
+  @discardableResult
+  @objc dynamic public func goNext() -> Swift.Bool
+}
+extension IQKeyboardManager {
+  @objc dynamic public var enableDebugging: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public func registerAllNotifications()
+  @objc dynamic public func unregisterAllNotifications()
+}
+@objc @_inheritsConvenienceInitializers public class IQKeyboardReturnKeyHandler : ObjectiveC.NSObject {
+  @objc weak public var delegate: (UIKit.UITextFieldDelegate & UIKit.UITextViewDelegate)?
+  @objc public var lastTextFieldReturnKeyType: UIKit.UIReturnKeyType {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc public init(controller: UIKit.UIViewController)
+  @objc deinit
+  @objc public func addTextFieldView(_ view: UIKit.UIView)
+  @objc public func removeTextFieldView(_ view: UIKit.UIView)
+  @objc public func addResponderFromView(_ view: UIKit.UIView)
+  @objc public func removeResponderFromView(_ view: UIKit.UIView)
+}
+extension IQKeyboardReturnKeyHandler : UIKit.UITextFieldDelegate {
+  @objc dynamic public func textFieldShouldBeginEditing(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc dynamic public func textFieldShouldEndEditing(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc dynamic public func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
+  @objc dynamic public func textFieldDidEndEditing(_ textField: UIKit.UITextField)
+  @available(iOS 10.0, *)
+  public typealias UITextFieldDidEndEditingReason = UIKit.UITextField.DidEndEditingReason
+  @available(iOS 10.0, *)
+  @objc dynamic public func textFieldDidEndEditing(_ textField: UIKit.UITextField, reason: ADCBGamification.IQKeyboardReturnKeyHandler.UITextFieldDidEndEditingReason)
+  @objc dynamic public func textField(_ textField: UIKit.UITextField, shouldChangeCharactersIn range: Foundation.NSRange, replacementString string: Swift.String) -> Swift.Bool
+  @objc dynamic public func textFieldShouldClear(_ textField: UIKit.UITextField) -> Swift.Bool
+  @objc dynamic public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+}
+extension IQKeyboardReturnKeyHandler : UIKit.UITextViewDelegate {
+  @objc dynamic public func textViewShouldBeginEditing(_ textView: UIKit.UITextView) -> Swift.Bool
+  @objc dynamic public func textViewShouldEndEditing(_ textView: UIKit.UITextView) -> Swift.Bool
+  @objc dynamic public func textViewDidBeginEditing(_ textView: UIKit.UITextView)
+  @objc dynamic public func textViewDidEndEditing(_ textView: UIKit.UITextView)
+  @objc dynamic public func textView(_ textView: UIKit.UITextView, shouldChangeTextIn range: Foundation.NSRange, replacementText text: Swift.String) -> Swift.Bool
+  @objc dynamic public func textViewDidChange(_ textView: UIKit.UITextView)
+  @objc dynamic public func textViewDidChangeSelection(_ textView: UIKit.UITextView)
+  @available(iOS 10.0, *)
+  @objc dynamic public func textView(_ aTextView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
+  @available(iOS 10.0, *)
+  @objc dynamic public func textView(_ aTextView: UIKit.UITextView, shouldInteractWith textAttachment: UIKit.NSTextAttachment, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
+  @available(iOS, deprecated: 10.0)
+  @objc dynamic public func textView(_ aTextView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange) -> Swift.Bool
+  @available(iOS, deprecated: 10.0)
+  @objc dynamic public func textView(_ aTextView: UIKit.UITextView, shouldInteractWith textAttachment: UIKit.NSTextAttachment, in characterRange: Foundation.NSRange) -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers open class IQBarButtonItem : UIKit.UIBarButtonItem {
+  @objc override dynamic public init()
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open var tintColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc open func setTarget(_ target: Swift.AnyObject?, action: ObjectiveC.Selector?)
+  @objc open var invocation: ADCBGamification.IQInvocation?
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class IQTitleBarButtonItem : ADCBGamification.IQBarButtonItem {
+  @objc open var titleFont: UIKit.UIFont? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var title: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc open var titleColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc open var selectableTitleColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc override open var invocation: ADCBGamification.IQInvocation? {
+    @objc get
+    @objc set
+  }
+  @objc convenience public init(title: Swift.String?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public class FortuneWheelSlice : ADCBGamification.FortuneWheelSliceProtocol {
+  public enum Style {
+    case dark
+    case light
+    public static func == (a: ADCBGamification.FortuneWheelSlice.Style, b: ADCBGamification.FortuneWheelSlice.Style) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public var title: Swift.String
+  public var degree: CoreGraphics.CGFloat
+  public var backgroundColor: UIKit.UIColor? {
+    get
+  }
+  public var fontColor: UIKit.UIColor {
+    get
+  }
+  public var font: UIKit.UIFont {
+    get
+  }
+  public var style: ADCBGamification.FortuneWheelSlice.Style
+  public init(title: Swift.String)
+  convenience public init(title: Swift.String, degree: CoreGraphics.CGFloat)
+  public func drawAdditionalGraphics(in context: CoreGraphics.CGContext, circularSegmentHeight: CoreGraphics.CGFloat, radius: CoreGraphics.CGFloat, sliceDegree: CoreGraphics.CGFloat)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class Game {
+  public static func loadGame(controller: UIKit.UIViewController)
+  @objc deinit
+}
+@objc public class IQInvocation : ObjectiveC.NSObject {
+  @objc weak public var target: Swift.AnyObject?
+  @objc public var action: ObjectiveC.Selector
+  @objc public init(_ target: Swift.AnyObject, _ action: ObjectiveC.Selector)
+  @objc public func invoke(from: Any)
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc extension UIViewController {
+  @objc dynamic public func parentIQContainerViewController() -> UIKit.UIViewController?
+  @objc @available(*, deprecated, message: "Due to change in core-logic of handling distance between textField and keyboard distance, this layout contraint tweak is no longer needed and things will just work out of the box regardless of constraint pinned with safeArea/layoutGuide/superview.")
+  @IBOutlet dynamic public var IQLayoutGuideConstraint: UIKit.NSLayoutConstraint? {
+    @objc get
+    @objc set(newValue)
+  }
+}
+@objc public enum IQAutoToolbarManageBehaviour : Swift.Int {
+  case bySubviews
+  case byTag
+  case byPosition
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum IQPreviousNextDisplayMode : Swift.Int {
+  case `default`
+  case alwaysHide
+  case alwaysShow
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum IQEnableMode : Swift.Int {
+  case `default`
+  case enabled
+  case disabled
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers open class IQTextView : UIKit.UITextView {
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect, textContainer: UIKit.NSTextContainer?)
+  @objc override dynamic open func awakeFromNib()
+  @objc deinit
+  @objc @IBInspectable open var placeholderTextColor: UIKit.UIColor? {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable open var placeholder: Swift.String? {
+    @objc get
+    @objc set
+  }
+  open var attributedPlaceholder: Foundation.NSAttributedString? {
+    get
+    set
+  }
+  @objc override dynamic open func layoutSubviews()
+  @objc override dynamic open var text: Swift.String! {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var attributedText: Foundation.NSAttributedString! {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var font: UIKit.UIFont? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var textAlignment: UIKit.NSTextAlignment {
+    @objc get
+    @objc set
+  }
+  @objc override weak dynamic open var delegate: UIKit.UITextViewDelegate? {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var intrinsicContentSize: CoreGraphics.CGSize {
+    @objc get
+  }
+}
+public struct StrokeInfo {
+  public var color: UIKit.UIColor
+  public var width: CoreGraphics.CGFloat
+  public init(color: UIKit.UIColor, width: CoreGraphics.CGFloat)
+}
+public protocol FortuneWheelSliceProtocol {
+  var title: Swift.String { get }
+  var backgroundColor: UIKit.UIColor? { get }
+  var degree: CoreGraphics.CGFloat { get }
+  var stroke: ADCBGamification.StrokeInfo? { get }
+  var offsetFromExterior: CoreGraphics.CGFloat { get }
+  var textAttributes: [Foundation.NSAttributedString.Key : Any] { get }
+  var fontSize: CoreGraphics.CGFloat { get }
+  var fontColor: UIKit.UIColor { get }
+  var font: UIKit.UIFont { get }
+  func drawAdditionalGraphics(in context: CoreGraphics.CGContext, circularSegmentHeight: CoreGraphics.CGFloat, radius: CoreGraphics.CGFloat, sliceDegree: CoreGraphics.CGFloat)
+}
+extension FortuneWheelSliceProtocol {
+  public func drawAdditionalGraphics(in context: CoreGraphics.CGContext, circularSegmentHeight: CoreGraphics.CGFloat, radius: CoreGraphics.CGFloat, sliceDegree: CoreGraphics.CGFloat)
+  public var fontSize: CoreGraphics.CGFloat {
+    get
+  }
+  public var fontColor: UIKit.UIColor {
+    get
+  }
+  public var font: UIKit.UIFont {
+    get
+  }
+  public var textAttributes: [Foundation.NSAttributedString.Key : Any] {
+    get
+  }
+  public var offsetFromExterior: CoreGraphics.CGFloat {
+    get
+  }
+  public var stroke: ADCBGamification.StrokeInfo? {
+    get
+  }
+  public var backgroundColor: UIKit.UIColor? {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class IQToolbar : UIKit.UIToolbar, UIKit.UIInputViewAudioFeedback {
+  @objc open var previousBarButton: ADCBGamification.IQBarButtonItem {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc open var nextBarButton: ADCBGamification.IQBarButtonItem {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc open var titleBarButton: ADCBGamification.IQTitleBarButtonItem {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc open var doneBarButton: ADCBGamification.IQBarButtonItem {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc open var fixedSpaceBarButton: ADCBGamification.IQBarButtonItem {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func sizeThatFits(_ size: CoreGraphics.CGSize) -> CoreGraphics.CGSize
+  @objc override dynamic open var tintColor: UIKit.UIColor! {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open func layoutSubviews()
+  @objc open var enableInputClicksWhenVisible: Swift.Bool {
+    @objc get
+  }
+  @objc deinit
+}
+@objc open class FortuneWheelLayer : QuartzCore.CALayer {
+  open var layerInsets: UIKit.UIEdgeInsets
+  public init(frame: CoreGraphics.CGRect, parent: ADCBGamification.TTFortuneWheel, initialOffset: CoreGraphics.CGFloat = 0.0)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func draw(in ctx: CoreGraphics.CGContext)
+  open func drawCanvas(mainFrame: CoreGraphics.CGRect)
+  open func drawSlice(withIndex index: Swift.Int, in context: CoreGraphics.CGContext, forSlice slice: ADCBGamification.FortuneWheelSliceProtocol, rotation: CoreGraphics.CGFloat)
+  @objc deinit
+  @objc override dynamic public init()
+  @objc override dynamic public init(layer: Any)
+}
+@_hasMissingDesignatedInitializers public class TTUtils {
+  public class func uiColor(from rgbValue: Swift.UInt, alpha: CoreGraphics.CGFloat = 1.0) -> UIKit.UIColor
+  @objc deinit
+}
+extension Bundle {
+  public static func sw_frameworkBundle() -> Foundation.Bundle
+}
+@_inheritsConvenienceInitializers @objc public class IQPreviousNextView : UIKit.UIView {
+  @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+@objc extension UIScrollView {
+  @objc dynamic public var shouldIgnoreScrollingAdjustment: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var shouldIgnoreContentInsetAdjustment: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var shouldRestoreScrollViewContentOffset: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class IQKeyboardManager : ObjectiveC.NSObject {
+  @objc public static let shared: ADCBGamification.IQKeyboardManager
+  @objc public var enable: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var keyboardDistanceFromTextField: CoreGraphics.CGFloat
+  @objc public var enableAutoToolbar: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var toolbarManageBehaviour: ADCBGamification.IQAutoToolbarManageBehaviour
+  @objc public var shouldToolbarUsesTextFieldTintColor: Swift.Bool
+  @objc public var toolbarTintColor: UIKit.UIColor?
+  @objc public var toolbarBarTintColor: UIKit.UIColor?
+  @objc public var previousNextDisplayMode: ADCBGamification.IQPreviousNextDisplayMode
+  @objc public var toolbarPreviousBarButtonItemImage: UIKit.UIImage?
+  @objc public var toolbarNextBarButtonItemImage: UIKit.UIImage?
+  @objc public var toolbarDoneBarButtonItemImage: UIKit.UIImage?
+  @objc public var toolbarPreviousBarButtonItemText: Swift.String?
+  @objc public var toolbarPreviousBarButtonItemAccessibilityLabel: Swift.String?
+  @objc public var toolbarNextBarButtonItemText: Swift.String?
+  @objc public var toolbarNextBarButtonItemAccessibilityLabel: Swift.String?
+  @objc public var toolbarDoneBarButtonItemText: Swift.String?
+  @objc public var toolbarDoneBarButtonItemAccessibilityLabel: Swift.String?
+  @objc public var shouldShowToolbarPlaceholder: Swift.Bool
+  @objc public var placeholderFont: UIKit.UIFont?
+  @objc public var placeholderColor: UIKit.UIColor?
+  @objc public var placeholderButtonColor: UIKit.UIColor?
+  @objc public var overrideKeyboardAppearance: Swift.Bool
+  @objc public var keyboardAppearance: UIKit.UIKeyboardAppearance
+  @objc public var shouldResignOnTouchOutside: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var resignFirstResponderGesture: UIKit.UITapGestureRecognizer {
+    @objc get
+    @objc set
+  }
+  @discardableResult
+  @objc public func resignFirstResponder() -> Swift.Bool
+  @objc public var shouldPlayInputClicks: Swift.Bool
+  @objc public var layoutIfNeededOnUpdate: Swift.Bool
+  @objc public var disabledDistanceHandlingClasses: [UIKit.UIViewController.Type]
+  @objc public var enabledDistanceHandlingClasses: [UIKit.UIViewController.Type]
+  @objc public var disabledToolbarClasses: [UIKit.UIViewController.Type]
+  @objc public var enabledToolbarClasses: [UIKit.UIViewController.Type]
+  @objc public var toolbarPreviousNextAllowedClasses: [UIKit.UIView.Type]
+  @objc public var disabledTouchResignedClasses: [UIKit.UIViewController.Type]
+  @objc public var enabledTouchResignedClasses: [UIKit.UIViewController.Type]
+  @objc public var touchResignedGestureIgnoreClasses: [UIKit.UIView.Type]
+  @objc public func registerTextFieldViewClass(_ aClass: UIKit.UIView.Type, didBeginEditingNotificationName: Swift.String, didEndEditingNotificationName: Swift.String)
+  @objc public func unregisterTextFieldViewClass(_ aClass: UIKit.UIView.Type, didBeginEditingNotificationName: Swift.String, didEndEditingNotificationName: Swift.String)
+  @objc deinit
+  @objc public func reloadLayoutIfNeeded()
+}
+extension IQKeyboardManager : UIKit.UIGestureRecognizerDelegate {
+  @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @objc dynamic public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldReceive touch: UIKit.UITouch) -> Swift.Bool
+}
+public class CarnivalWheelSlice : ADCBGamification.FortuneWheelSliceProtocol {
+  public enum Style {
+    case brickRed
+    case sandYellow
+    case babyBlue
+    case deepBlue
+    public static func == (a: ADCBGamification.CarnivalWheelSlice.Style, b: ADCBGamification.CarnivalWheelSlice.Style) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public var title: Swift.String
+  public var degree: CoreGraphics.CGFloat
+  public var backgroundColor: UIKit.UIColor? {
+    get
+  }
+  public var fontColor: UIKit.UIColor {
+    get
+  }
+  public var offsetFromExterior: CoreGraphics.CGFloat {
+    get
+  }
+  public var font: UIKit.UIFont {
+    get
+  }
+  public var stroke: ADCBGamification.StrokeInfo? {
+    get
+  }
+  public var style: ADCBGamification.CarnivalWheelSlice.Style
+  public init(title: Swift.String)
+  convenience public init(title: Swift.String, degree: CoreGraphics.CGFloat)
+  @objc deinit
+}
+extension IQKeyboardManager {
+  @objc dynamic public var keyboardShowing: Swift.Bool {
+    @objc get
+  }
+  public typealias UIViewAnimationOptions = UIKit.UIView.AnimationOptions
+}
+extension IQKeyboardManager {
+  @objc dynamic public var movedDistance: CoreGraphics.CGFloat {
+    @objc get
+  }
+  @objc dynamic public var movedDistanceChanged: ((CoreGraphics.CGFloat) -> Swift.Void)? {
+    @objc get
+    @objc set(newValue)
+  }
+}
+public let kIQUseDefaultKeyboardDistance: CoreGraphics.CGFloat
+@objc extension UIView {
+  @objc dynamic public var keyboardDistanceFromTextField: CoreGraphics.CGFloat {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var ignoreSwitchingByNextPrevious: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var enableMode: ADCBGamification.IQEnableMode {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var shouldResignOnTouchOutsideMode: ADCBGamification.IQEnableMode {
+    @objc get
+    @objc set(newValue)
+  }
+}
+@objc public class TTFortuneWheel : UIKit.UIControl, QuartzCore.CAAnimationDelegate {
+  open var equalSlices: Swift.Bool
+  open var slices: [ADCBGamification.FortuneWheelSliceProtocol]!
+  open var frameStroke: ADCBGamification.StrokeInfo
+  open var shadow: UIKit.NSShadow?
+  open var initialDrawingOffset: CoreGraphics.CGFloat
+  open var titleRotation: CoreGraphics.CGFloat
+  public init(frame: CoreGraphics.CGRect, slices: [ADCBGamification.FortuneWheelSliceProtocol])
+  @objc override dynamic public func layoutSubviews()
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public func draw(_ rect: CoreGraphics.CGRect)
+  open func startAnimating(rotationCompletionOffset: CoreGraphics.CGFloat = 0.0, _ completion: ((Swift.Bool) -> Swift.Void)?)
+  open func startAnimating(fininshIndex: Swift.Int = 0, _ completion: ((Swift.Bool) -> Swift.Void)?)
+  open func startAnimating()
+  open func stopAnimating()
+  open func startAnimating(fininshIndex: Swift.Int = 0, offset: CoreGraphics.CGFloat, _ completion: ((Swift.Bool) -> Swift.Void)?)
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc deinit
+}
+@objc public class IQBarButtonItemConfiguration : ObjectiveC.NSObject {
+  public typealias UIBarButtonSystemItem = UIKit.UIBarButtonItem.SystemItem
+  @objc public init(barButtonSystemItem: ADCBGamification.IQBarButtonItemConfiguration.UIBarButtonSystemItem, action: ObjectiveC.Selector)
+  @objc public init(image: UIKit.UIImage, action: ObjectiveC.Selector)
+  @objc public init(title: Swift.String, action: ObjectiveC.Selector)
+  final public let barButtonSystemItem: ADCBGamification.IQBarButtonItemConfiguration.UIBarButtonSystemItem?
+  @objc final public let image: UIKit.UIImage?
+  @objc final public let title: Swift.String?
+  @objc final public let action: ObjectiveC.Selector?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc extension UIImage {
+  @objc public static func keyboardLeftImage() -> UIKit.UIImage?
+  @objc public static func keyboardRightImage() -> UIKit.UIImage?
+  @objc public static func keyboardUpImage() -> UIKit.UIImage?
+  @objc public static func keyboardDownImage() -> UIKit.UIImage?
+  @objc public static func keyboardPreviousImage() -> UIKit.UIImage?
+  @objc public static func keyboardNextImage() -> UIKit.UIImage?
+}
+@objc extension UIView {
+  @objc dynamic public var keyboardToolbar: ADCBGamification.IQToolbar {
+    @objc get
+  }
+  @objc dynamic public var shouldHideToolbarPlaceholder: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var toolbarPlaceholder: Swift.String? {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var drawingToolbarPlaceholder: Swift.String? {
+    @objc get
+  }
+  @objc dynamic public func addKeyboardToolbarWithTarget(target: Swift.AnyObject?, titleText: Swift.String?, rightBarButtonConfiguration: ADCBGamification.IQBarButtonItemConfiguration?, previousBarButtonConfiguration: ADCBGamification.IQBarButtonItemConfiguration? = nil, nextBarButtonConfiguration: ADCBGamification.IQBarButtonItemConfiguration? = nil)
+  @objc dynamic public func addDoneOnKeyboardWithTarget(_ target: Swift.AnyObject?, action: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc dynamic public func addDoneOnKeyboardWithTarget(_ target: Swift.AnyObject?, action: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc dynamic public func addRightButtonOnKeyboardWithImage(_ image: UIKit.UIImage, target: Swift.AnyObject?, action: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc dynamic public func addRightButtonOnKeyboardWithImage(_ image: UIKit.UIImage, target: Swift.AnyObject?, action: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc dynamic public func addRightButtonOnKeyboardWithText(_ text: Swift.String, target: Swift.AnyObject?, action: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc dynamic public func addRightButtonOnKeyboardWithText(_ text: Swift.String, target: Swift.AnyObject?, action: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc dynamic public func addCancelDoneOnKeyboardWithTarget(_ target: Swift.AnyObject?, cancelAction: ObjectiveC.Selector, doneAction: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc dynamic public func addRightLeftOnKeyboardWithTarget(_ target: Swift.AnyObject?, leftButtonTitle: Swift.String, rightButtonTitle: Swift.String, leftButtonAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc dynamic public func addRightLeftOnKeyboardWithTarget(_ target: Swift.AnyObject?, leftButtonImage: UIKit.UIImage, rightButtonImage: UIKit.UIImage, leftButtonAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc dynamic public func addCancelDoneOnKeyboardWithTarget(_ target: Swift.AnyObject?, cancelAction: ObjectiveC.Selector, doneAction: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc dynamic public func addRightLeftOnKeyboardWithTarget(_ target: Swift.AnyObject?, leftButtonTitle: Swift.String, rightButtonTitle: Swift.String, leftButtonAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc dynamic public func addRightLeftOnKeyboardWithTarget(_ target: Swift.AnyObject?, leftButtonImage: UIKit.UIImage, rightButtonImage: UIKit.UIImage, leftButtonAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc dynamic public func addPreviousNextDoneOnKeyboardWithTarget(_ target: Swift.AnyObject?, previousAction: ObjectiveC.Selector, nextAction: ObjectiveC.Selector, doneAction: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc dynamic public func addPreviousNextRightOnKeyboardWithTarget(_ target: Swift.AnyObject?, rightButtonImage: UIKit.UIImage, previousAction: ObjectiveC.Selector, nextAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc dynamic public func addPreviousNextRightOnKeyboardWithTarget(_ target: Swift.AnyObject?, rightButtonTitle: Swift.String, previousAction: ObjectiveC.Selector, nextAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, shouldShowPlaceholder: Swift.Bool = false)
+  @objc dynamic public func addPreviousNextDoneOnKeyboardWithTarget(_ target: Swift.AnyObject?, previousAction: ObjectiveC.Selector, nextAction: ObjectiveC.Selector, doneAction: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc dynamic public func addPreviousNextRightOnKeyboardWithTarget(_ target: Swift.AnyObject?, rightButtonImage: UIKit.UIImage, previousAction: ObjectiveC.Selector, nextAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, titleText: Swift.String?)
+  @objc dynamic public func addPreviousNextRightOnKeyboardWithTarget(_ target: Swift.AnyObject?, rightButtonTitle: Swift.String, previousAction: ObjectiveC.Selector, nextAction: ObjectiveC.Selector, rightButtonAction: ObjectiveC.Selector, titleText: Swift.String?)
+}
+@objc extension UIView {
+  @objc dynamic public func viewContainingController() -> UIKit.UIViewController?
+  @objc dynamic public func topMostController() -> UIKit.UIViewController?
+  @objc dynamic public func parentContainerViewController() -> UIKit.UIViewController?
+  @objc dynamic public func superviewOfClassType(_ classType: UIKit.UIView.Type, belowView: UIKit.UIView? = nil) -> UIKit.UIView?
+}
+extension ADCBGamification.FortuneWheelSlice.Style : Swift.Equatable {}
+extension ADCBGamification.FortuneWheelSlice.Style : Swift.Hashable {}
+extension ADCBGamification.IQAutoToolbarManageBehaviour : Swift.Equatable {}
+extension ADCBGamification.IQAutoToolbarManageBehaviour : Swift.Hashable {}
+extension ADCBGamification.IQAutoToolbarManageBehaviour : Swift.RawRepresentable {}
+extension ADCBGamification.IQPreviousNextDisplayMode : Swift.Equatable {}
+extension ADCBGamification.IQPreviousNextDisplayMode : Swift.Hashable {}
+extension ADCBGamification.IQPreviousNextDisplayMode : Swift.RawRepresentable {}
+extension ADCBGamification.IQEnableMode : Swift.Equatable {}
+extension ADCBGamification.IQEnableMode : Swift.Hashable {}
+extension ADCBGamification.IQEnableMode : Swift.RawRepresentable {}
+extension ADCBGamification.CarnivalWheelSlice.Style : Swift.Equatable {}
+extension ADCBGamification.CarnivalWheelSlice.Style : Swift.Hashable {}
