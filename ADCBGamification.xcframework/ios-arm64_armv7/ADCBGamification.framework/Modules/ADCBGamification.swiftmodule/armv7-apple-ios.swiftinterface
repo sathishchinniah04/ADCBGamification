@@ -323,6 +323,9 @@ extension FortuneWheelSliceProtocol {
 extension Bundle {
   public static func sw_frameworkBundle() -> Foundation.Bundle
 }
+extension UIColor {
+  public class func uiColor(from rgbValue: Swift.UInt, alpha: CoreGraphics.CGFloat = 1.0) -> UIKit.UIColor
+}
 @_inheritsConvenienceInitializers @objc public class IQPreviousNextView : UIKit.UIView {
   @objc deinit
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
