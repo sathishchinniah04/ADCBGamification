@@ -597,6 +597,8 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 @end
 
 
+
+
 @interface UIScrollView (SWIFT_EXTENSION(ADCBGamification))
 /// If YES, then scrollview will ignore scrolling (simply not scroll it) for adjusting textfield position. Default is NO.
 @property (nonatomic) BOOL shouldIgnoreScrollingAdjustment;
@@ -1280,6 +1282,8 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 @end
 
 
+
+
 @interface UIScrollView (SWIFT_EXTENSION(ADCBGamification))
 /// If YES, then scrollview will ignore scrolling (simply not scroll it) for adjusting textfield position. Default is NO.
 @property (nonatomic) BOOL shouldIgnoreScrollingAdjustment;
@@ -1961,6 +1965,8 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 + (UIImage * _Nullable)keyboardPreviousImage SWIFT_WARN_UNUSED_RESULT;
 + (UIImage * _Nullable)keyboardNextImage SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 @interface UIScrollView (SWIFT_EXTENSION(ADCBGamification))
