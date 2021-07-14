@@ -140,6 +140,7 @@ public class FortuneWheelSlice : ADCBGamification.FortuneWheelSliceProtocol {
   @objc deinit
 }
 @_hasMissingDesignatedInitializers public class Game {
+  public static func open(controller: UIKit.UIViewController, msisdn: Swift.String, language: Swift.String, gameType: Swift.String, gameId: Swift.String?)
   public static func openGameList(controller: UIKit.UIViewController, msisdn: Swift.String, language: Swift.String)
   @objc deinit
 }
