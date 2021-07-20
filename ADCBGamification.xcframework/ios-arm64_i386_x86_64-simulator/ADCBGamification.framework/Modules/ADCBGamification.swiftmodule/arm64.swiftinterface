@@ -139,9 +139,18 @@ public class FortuneWheelSlice : ADCBGamification.FortuneWheelSliceProtocol {
   public func drawAdditionalGraphics(in context: CoreGraphics.CGContext, circularSegmentHeight: CoreGraphics.CGFloat, radius: CoreGraphics.CGFloat, sliceDegree: CoreGraphics.CGFloat)
   @objc deinit
 }
+public enum GameAction {
+  case backButton
+  case closeButton
+  public static func == (a: ADCBGamification.GameAction, b: ADCBGamification.GameAction) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
 @_hasMissingDesignatedInitializers public class Game {
-  public static func open(controller: UIKit.UIViewController, msisdn: Swift.String, language: Swift.String, gameType: Swift.String, gameId: Swift.String?)
-  public static func openGameList(controller: UIKit.UIViewController, msisdn: Swift.String, language: Swift.String)
+  public static func open(controller: UIKit.UIViewController, msisdn: Swift.String, language: Swift.String, gameType: Swift.String, gameId: Swift.String?, complition: ((ADCBGamification.GameAction) -> Swift.Void)?)
+  public static func openGameList(controller: UIKit.UIViewController, msisdn: Swift.String, language: Swift.String, complition: ((ADCBGamification.GameAction) -> Swift.Void)?)
   @objc deinit
 }
 @objc public class IQInvocation : ObjectiveC.NSObject {
@@ -556,6 +565,8 @@ public let kIQUseDefaultKeyboardDistance: CoreGraphics.CGFloat
 }
 extension ADCBGamification.FortuneWheelSlice.Style : Swift.Equatable {}
 extension ADCBGamification.FortuneWheelSlice.Style : Swift.Hashable {}
+extension ADCBGamification.GameAction : Swift.Equatable {}
+extension ADCBGamification.GameAction : Swift.Hashable {}
 extension ADCBGamification.IQAutoToolbarManageBehaviour : Swift.Equatable {}
 extension ADCBGamification.IQAutoToolbarManageBehaviour : Swift.Hashable {}
 extension ADCBGamification.IQAutoToolbarManageBehaviour : Swift.RawRepresentable {}
