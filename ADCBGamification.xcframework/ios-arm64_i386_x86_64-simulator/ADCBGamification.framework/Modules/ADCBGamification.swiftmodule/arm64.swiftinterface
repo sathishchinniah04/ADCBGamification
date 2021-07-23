@@ -142,6 +142,7 @@ public class FortuneWheelSlice : ADCBGamification.FortuneWheelSliceProtocol {
 public enum GameAction {
   case backButton
   case closeButton
+  case spinReward
   public static func == (a: ADCBGamification.GameAction, b: ADCBGamification.GameAction) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
