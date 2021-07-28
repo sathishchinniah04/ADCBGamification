@@ -13,6 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         DispatchQueue.main.async {
             //Game.loadGame(controller: self)
+            // loading game
         }
     }
 
