@@ -1,14 +1,36 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ADCBGamification
 @_exported import ADCBGamification
 import Contacts
 import ContactsUI
 import CoreGraphics
+import CoreText
 import Foundation
 import QuartzCore
 import Swift
 import UIKit
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ImageAsset : ADCBGamification.Asset {
+  final public let name: Swift.String
+  final public let directory: Swift.String
+  final public let width: Swift.Double
+  final public let height: Swift.Double
+  override final public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+public protocol AnimationTextProvider : AnyObject {
+  func textFor(keypathName: Swift.String, sourceText: Swift.String) -> Swift.String
+}
+final public class DictionaryTextProvider : ADCBGamification.AnimationTextProvider {
+  public init(_ values: [Swift.String : Swift.String])
+  final public func textFor(keypathName: Swift.String, sourceText: Swift.String) -> Swift.String
+  @objc deinit
+}
+final public class DefaultTextProvider : ADCBGamification.AnimationTextProvider {
+  final public func textFor(keypathName: Swift.String, sourceText: Swift.String) -> Swift.String
+  public init()
+  @objc deinit
+}
 extension IQKeyboardManager {
   @objc dynamic public func reloadInputViews()
 }
@@ -31,6 +53,56 @@ extension IQKeyboardManager {
   }
   @objc dynamic public func registerAllNotifications()
   @objc dynamic public func unregisterAllNotifications()
+}
+infix operator +| : DefaultPrecedence
+infix operator +- : DefaultPrecedence
+public enum LayerType : Swift.Int, Swift.Codable {
+  case precomp
+  case solid
+  case image
+  case null
+  case shape
+  case text
+  public init(from decoder: Swift.Decoder) throws
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum MatteType : Swift.Int, Swift.Codable {
+  case none
+  case add
+  case invert
+  case unknown
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum BlendMode : Swift.Int, Swift.Codable {
+  case normal
+  case multiply
+  case screen
+  case overlay
+  case darken
+  case lighten
+  case colorDodge
+  case colorBurn
+  case hardLight
+  case softLight
+  case difference
+  case exclusion
+  case hue
+  case saturation
+  case color
+  case luminosity
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 @objc @_inheritsConvenienceInitializers public class IQKeyboardReturnKeyHandler : ObjectiveC.NSObject {
   @objc weak public var delegate: (UIKit.UITextFieldDelegate & UIKit.UITextViewDelegate)?
@@ -87,6 +159,30 @@ extension IQKeyboardReturnKeyHandler : UIKit.UITextViewDelegate {
   @objc open var invocation: ADCBGamification.IQInvocation?
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers final public class AnimatedSwitch : ADCBGamification.AnimatedControl {
+  public enum CancelBehavior {
+    case reverse
+    case none
+    public static func == (a: ADCBGamification.AnimatedSwitch.CancelBehavior, b: ADCBGamification.AnimatedSwitch.CancelBehavior) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  final public var isOn: Swift.Bool {
+    get
+    set
+  }
+  final public var cancelBehavior: ADCBGamification.AnimatedSwitch.CancelBehavior
+  final public func setIsOn(_ isOn: Swift.Bool, animated: Swift.Bool, shouldFireHaptics: Swift.Bool = true)
+  final public func setProgressForState(fromProgress: ADCBGamification.AnimationProgressTime, toProgress: ADCBGamification.AnimationProgressTime, forOnState: Swift.Bool)
+  override public init(animation: ADCBGamification.Animation)
+  @objc override dynamic public init()
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override final public func endTracking(_ touch: UIKit.UITouch?, with event: UIKit.UIEvent?)
+  override final public func animationDidSet()
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class IQTitleBarButtonItem : ADCBGamification.IQBarButtonItem {
   @objc open var titleFont: UIKit.UIFont? {
     @objc get
@@ -112,15 +208,37 @@ extension IQKeyboardReturnKeyHandler : UIKit.UITextViewDelegate {
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
 }
+public enum ColorFormatDenominator {
+  case One
+  case OneHundred
+  case TwoFiftyFive
+  public static func == (a: ADCBGamification.ColorFormatDenominator, b: ADCBGamification.ColorFormatDenominator) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Color {
+  public var r: Swift.Double
+  public var g: Swift.Double
+  public var b: Swift.Double
+  public var a: Swift.Double
+  public init(r: Swift.Double, g: Swift.Double, b: Swift.Double, a: Swift.Double, denominator: ADCBGamification.ColorFormatDenominator = .One)
+}
+@objc @_inheritsConvenienceInitializers final public class AnimationSubview : UIKit.UIView {
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
 public class FortuneWheelSlice : ADCBGamification.FortuneWheelSliceProtocol {
   public enum Style {
     case dark
     case light
     public static func == (a: ADCBGamification.FortuneWheelSlice.Style, b: ADCBGamification.FortuneWheelSlice.Style) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public var title: Swift.String
   public var degree: CoreGraphics.CGFloat
@@ -144,15 +262,19 @@ public enum GameAction {
   case closeButton
   case spinReward
   public static func == (a: ADCBGamification.GameAction, b: ADCBGamification.GameAction) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 @_hasMissingDesignatedInitializers public class Game {
   public static func open(controller: UIKit.UIViewController, msisdn: Swift.String, language: Swift.String, gameType: Swift.String, gameId: Swift.String?, complition: ((ADCBGamification.GameAction) -> Swift.Void)?)
   public static func openGameList(controller: UIKit.UIViewController, msisdn: Swift.String, language: Swift.String, complition: ((ADCBGamification.GameAction) -> Swift.Void)?)
   @objc deinit
+}
+public struct AnimationKeypath {
+  public init(keypath: Swift.String)
+  public init(keys: [Swift.String])
 }
 @objc public class IQInvocation : ObjectiveC.NSObject {
   @objc weak public var target: Swift.AnyObject?
@@ -170,12 +292,142 @@ public enum GameAction {
     @objc set(newValue)
   }
 }
+public class FilepathImageProvider : ADCBGamification.AnimationImageProvider {
+  public init(filepath: Swift.String)
+  public init(filepath: Foundation.URL)
+  public func imageForAsset(asset: ADCBGamification.ImageAsset) -> CoreGraphics.CGImage?
+  @objc deinit
+}
+final public class PointValueProvider : ADCBGamification.AnyValueProvider {
+  public typealias PointValueBlock = (CoreGraphics.CGFloat) -> CoreGraphics.CGPoint
+  final public var point: CoreGraphics.CGPoint {
+    get
+    set
+  }
+  public init(block: @escaping ADCBGamification.PointValueProvider.PointValueBlock)
+  public init(_ point: CoreGraphics.CGPoint)
+  final public var valueType: Any.Type {
+    get
+  }
+  final public func hasUpdate(frame: CoreGraphics.CGFloat) -> Swift.Bool
+  final public func value(frame: CoreGraphics.CGFloat) -> Any
+  @objc deinit
+}
+public enum LottieBackgroundBehavior {
+  case stop
+  case pause
+  case pauseAndRestore
+  case forceFinish
+  public static func == (a: ADCBGamification.LottieBackgroundBehavior, b: ADCBGamification.LottieBackgroundBehavior) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum LottieLoopMode {
+  case playOnce
+  case loop
+  case autoReverse
+  case `repeat`(Swift.Float)
+  case repeatBackwards(Swift.Float)
+}
+extension LottieLoopMode : Swift.Equatable {
+  public static func == (lhs: ADCBGamification.LottieLoopMode, rhs: ADCBGamification.LottieLoopMode) -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable final public class AnimationView : ADCBGamification.LottieView {
+  final public var animation: ADCBGamification.Animation? {
+    get
+    set
+  }
+  final public var backgroundBehavior: ADCBGamification.LottieBackgroundBehavior
+  final public var imageProvider: ADCBGamification.AnimationImageProvider {
+    get
+    set
+  }
+  final public var textProvider: ADCBGamification.AnimationTextProvider {
+    get
+    set
+  }
+  final public var fontProvider: ADCBGamification.AnimationFontProvider {
+    get
+    set
+  }
+  final public var isAnimationPlaying: Swift.Bool {
+    get
+  }
+  final public var isAnimationQueued: Swift.Bool {
+    get
+  }
+  final public var loopMode: ADCBGamification.LottieLoopMode {
+    get
+    set
+  }
+  final public var shouldRasterizeWhenIdle: Swift.Bool {
+    get
+    set
+  }
+  final public var currentProgress: ADCBGamification.AnimationProgressTime {
+    get
+    set
+  }
+  final public var currentTime: Foundation.TimeInterval {
+    get
+    set
+  }
+  final public var currentFrame: ADCBGamification.AnimationFrameTime {
+    get
+    set
+  }
+  final public var realtimeAnimationFrame: ADCBGamification.AnimationFrameTime {
+    get
+  }
+  final public var realtimeAnimationProgress: ADCBGamification.AnimationProgressTime {
+    get
+  }
+  final public var animationSpeed: CoreGraphics.CGFloat {
+    get
+    set
+  }
+  final public var respectAnimationFrameRate: Swift.Bool {
+    get
+    set
+  }
+  final public var viewportFrame: CoreGraphics.CGRect? {
+    get
+    set
+  }
+  final public func play(completion: ADCBGamification.LottieCompletionBlock? = nil)
+  final public func play(fromProgress: ADCBGamification.AnimationProgressTime? = nil, toProgress: ADCBGamification.AnimationProgressTime, loopMode: ADCBGamification.LottieLoopMode? = nil, completion: ADCBGamification.LottieCompletionBlock? = nil)
+  final public func play(fromFrame: ADCBGamification.AnimationFrameTime? = nil, toFrame: ADCBGamification.AnimationFrameTime, loopMode: ADCBGamification.LottieLoopMode? = nil, completion: ADCBGamification.LottieCompletionBlock? = nil)
+  final public func play(fromMarker: Swift.String? = nil, toMarker: Swift.String, loopMode: ADCBGamification.LottieLoopMode? = nil, completion: ADCBGamification.LottieCompletionBlock? = nil)
+  final public func stop()
+  final public func pause()
+  final public func reloadImages()
+  final public func forceDisplayUpdate()
+  final public func setValueProvider(_ valueProvider: ADCBGamification.AnyValueProvider, keypath: ADCBGamification.AnimationKeypath)
+  final public func getValue(for keypath: ADCBGamification.AnimationKeypath, atFrame: ADCBGamification.AnimationFrameTime?) -> Any?
+  final public func logHierarchyKeypaths()
+  final public func addSubview(_ subview: ADCBGamification.AnimationSubview, forLayerAt keypath: ADCBGamification.AnimationKeypath)
+  final public func convert(_ rect: CoreGraphics.CGRect, toLayerAt keypath: ADCBGamification.AnimationKeypath?) -> CoreGraphics.CGRect?
+  final public func convert(_ point: CoreGraphics.CGPoint, toLayerAt keypath: ADCBGamification.AnimationKeypath?) -> CoreGraphics.CGPoint?
+  final public func setNodeIsEnabled(isEnabled: Swift.Bool, keypath: ADCBGamification.AnimationKeypath)
+  final public func progressTime(forMarker named: Swift.String) -> ADCBGamification.AnimationProgressTime?
+  final public func frameTime(forMarker named: Swift.String) -> ADCBGamification.AnimationFrameTime?
+  public init(animation: ADCBGamification.Animation?, imageProvider: ADCBGamification.AnimationImageProvider? = nil, textProvider: ADCBGamification.AnimationTextProvider = DefaultTextProvider(), fontProvider: ADCBGamification.AnimationFontProvider = DefaultFontProvider())
+  @objc dynamic public init()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override final public var intrinsicContentSize: CoreGraphics.CGSize {
+    @objc get
+  }
+  @objc deinit
+}
 @objc public enum IQAutoToolbarManageBehaviour : Swift.Int {
   case bySubviews
   case byTag
   case byPosition
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -184,8 +436,8 @@ public enum GameAction {
   case `default`
   case alwaysHide
   case alwaysShow
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -194,11 +446,30 @@ public enum GameAction {
   case `default`
   case enabled
   case disabled
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
+}
+final public class ColorValueProvider : ADCBGamification.AnyValueProvider {
+  public typealias ColorValueBlock = (CoreGraphics.CGFloat) -> ADCBGamification.Color
+  final public var color: ADCBGamification.Color {
+    get
+    set
+  }
+  public init(block: @escaping ADCBGamification.ColorValueProvider.ColorValueBlock)
+  public init(_ color: ADCBGamification.Color)
+  final public var valueType: Any.Type {
+    get
+  }
+  final public func hasUpdate(frame: CoreGraphics.CGFloat) -> Swift.Bool
+  final public func value(frame: CoreGraphics.CGFloat) -> Any
+  @objc deinit
+}
+extension Color : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 @objc @_inheritsConvenienceInitializers open class IQTextView : UIKit.UITextView {
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
@@ -241,6 +512,34 @@ public enum GameAction {
   @objc override dynamic open var intrinsicContentSize: CoreGraphics.CGSize {
     @objc get
   }
+}
+@objc final public class CompatibleAnimationKeypath : ObjectiveC.NSObject {
+  @objc public init(keypath: Swift.String)
+  @objc public init(keys: [Swift.String])
+  final public let animationKeypath: ADCBGamification.AnimationKeypath
+  @objc override dynamic public init()
+  @objc deinit
+}
+public class Asset : Swift.Codable {
+  final public let id: Swift.String
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+}
+final public class SizeValueProvider : ADCBGamification.AnyValueProvider {
+  public typealias SizeValueBlock = (CoreGraphics.CGFloat) -> CoreGraphics.CGSize
+  final public var size: CoreGraphics.CGSize {
+    get
+    set
+  }
+  public init(block: @escaping ADCBGamification.SizeValueProvider.SizeValueBlock)
+  public init(_ size: CoreGraphics.CGSize)
+  final public var valueType: Any.Type {
+    get
+  }
+  final public func hasUpdate(frame: CoreGraphics.CGFloat) -> Swift.Bool
+  final public func value(frame: CoreGraphics.CGFloat) -> Any
+  @objc deinit
 }
 public struct StrokeInfo {
   public var color: UIKit.UIColor
@@ -316,6 +615,58 @@ extension FortuneWheelSliceProtocol {
   }
   @objc deinit
 }
+public protocol AnimationFontProvider {
+  func fontFor(family: Swift.String, size: CoreGraphics.CGFloat) -> CoreText.CTFont?
+}
+final public class DefaultFontProvider : ADCBGamification.AnimationFontProvider {
+  final public func fontFor(family: Swift.String, size: CoreGraphics.CGFloat) -> CoreText.CTFont?
+  public init()
+  @objc deinit
+}
+public typealias LottieCompletionBlock = (Swift.Bool) -> Swift.Void
+@objc open class AnimatedControl : UIKit.UIControl {
+  final public let animationView: ADCBGamification.AnimationView
+  public var animation: ADCBGamification.Animation? {
+    get
+    set
+  }
+  public var animationSpeed: CoreGraphics.CGFloat {
+    get
+    set
+  }
+  public func setLayer(named: Swift.String, forState: UIKit.UIControl.State)
+  public func setValueProvider(_ valueProvider: ADCBGamification.AnyValueProvider, keypath: ADCBGamification.AnimationKeypath)
+  public init(animation: ADCBGamification.Animation)
+  @objc dynamic public init()
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open var isEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var isSelected: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open var isHighlighted: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open func beginTracking(_ touch: UIKit.UITouch, with event: UIKit.UIEvent?) -> Swift.Bool
+  @objc override dynamic open func continueTracking(_ touch: UIKit.UITouch, with event: UIKit.UIEvent?) -> Swift.Bool
+  @objc override dynamic open func endTracking(_ touch: UIKit.UITouch?, with event: UIKit.UIEvent?)
+  @objc override dynamic open func cancelTracking(with event: UIKit.UIEvent?)
+  @objc override dynamic open var intrinsicContentSize: CoreGraphics.CGSize {
+    @objc get
+  }
+  open func animationDidSet()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc deinit
+}
+extension UIColor {
+  public var lottieColorValue: ADCBGamification.Color {
+    get
+  }
+}
 @objc open class FortuneWheelLayer : QuartzCore.CALayer {
   open var layerInsets: UIKit.UIEdgeInsets
   public init(frame: CoreGraphics.CGRect, parent: ADCBGamification.TTFortuneWheel, initialOffset: CoreGraphics.CGFloat = 0.0)
@@ -323,9 +674,9 @@ extension FortuneWheelSliceProtocol {
   @objc override dynamic open func draw(in ctx: CoreGraphics.CGContext)
   open func drawCanvas(mainFrame: CoreGraphics.CGRect)
   open func drawSlice(withIndex index: Swift.Int, in context: CoreGraphics.CGContext, forSlice slice: ADCBGamification.FortuneWheelSliceProtocol, rotation: CoreGraphics.CGFloat)
-  @objc deinit
   @objc override dynamic public init()
   @objc override dynamic public init(layer: Any)
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers public class TTUtils {
   public class func uiColor(from rgbValue: Swift.UInt, alpha: CoreGraphics.CGFloat = 1.0) -> UIKit.UIColor
@@ -334,13 +685,181 @@ extension FortuneWheelSliceProtocol {
 extension Bundle {
   public static func sw_frameworkBundle() -> Foundation.Bundle
 }
+public struct Vector1D {
+  public init(_ value: Swift.Double)
+  public let value: Swift.Double
+}
+public struct Vector3D {
+  public let x: Swift.Double
+  public let y: Swift.Double
+  public let z: Swift.Double
+  public init(x: Swift.Double, y: Swift.Double, z: Swift.Double)
+}
+@objc final public class CompatibleAnimation : ObjectiveC.NSObject {
+  @objc public init(name: Swift.String, bundle: Foundation.Bundle = Bundle.main)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class CompatibleAnimationView : UIKit.UIView {
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc final public var compatibleAnimation: ADCBGamification.CompatibleAnimation? {
+    @objc get
+    @objc set
+  }
+  @objc final public var loopAnimationCount: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc override final public var contentMode: UIKit.UIView.ContentMode {
+    @objc get
+    @objc set
+  }
+  @objc final public var shouldRasterizeWhenIdle: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc final public var currentProgress: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc final public var currentTime: Foundation.TimeInterval {
+    @objc get
+    @objc set
+  }
+  @objc final public var currentFrame: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc final public var realtimeAnimationFrame: CoreGraphics.CGFloat {
+    @objc get
+  }
+  @objc final public var realtimeAnimationProgress: CoreGraphics.CGFloat {
+    @objc get
+  }
+  @objc final public var animationSpeed: CoreGraphics.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc final public var respectAnimationFrameRate: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc final public var isAnimationPlaying: Swift.Bool {
+    @objc get
+  }
+  @objc final public func play()
+  @objc final public func play(completion: ((Swift.Bool) -> Swift.Void)?)
+  @objc final public func play(fromProgress: CoreGraphics.CGFloat, toProgress: CoreGraphics.CGFloat, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  @objc final public func play(fromFrame: CoreGraphics.CGFloat, toFrame: CoreGraphics.CGFloat, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  @objc final public func play(fromMarker: Swift.String, toMarker: Swift.String, completion: ((Swift.Bool) -> Swift.Void)? = nil)
+  @objc final public func stop()
+  @objc final public func pause()
+  @objc final public func reloadImages()
+  @objc final public func forceDisplayUpdate()
+  @objc final public func getValue(for keypath: ADCBGamification.CompatibleAnimationKeypath, atFrame: CoreGraphics.CGFloat) -> Any?
+  @objc final public func logHierarchyKeypaths()
+  @objc final public func setColorValue(_ color: UIKit.UIColor, forKeypath keypath: ADCBGamification.CompatibleAnimationKeypath)
+  @objc final public func getColorValue(for keypath: ADCBGamification.CompatibleAnimationKeypath, atFrame: CoreGraphics.CGFloat) -> UIKit.UIColor?
+  @objc final public func addSubview(_ subview: ADCBGamification.AnimationSubview, forLayerAt keypath: ADCBGamification.CompatibleAnimationKeypath)
+  @objc final public func convert(rect: CoreGraphics.CGRect, toLayerAt keypath: ADCBGamification.CompatibleAnimationKeypath?) -> CoreGraphics.CGRect
+  @objc final public func convert(point: CoreGraphics.CGPoint, toLayerAt keypath: ADCBGamification.CompatibleAnimationKeypath?) -> CoreGraphics.CGPoint
+  @objc final public func progressTime(forMarker named: Swift.String) -> CoreGraphics.CGFloat
+  @objc final public func frameTime(forMarker named: Swift.String) -> CoreGraphics.CGFloat
+  @objc deinit
+}
+public class BundleImageProvider : ADCBGamification.AnimationImageProvider {
+  public init(bundle: Foundation.Bundle, searchPath: Swift.String?)
+  public func imageForAsset(asset: ADCBGamification.ImageAsset) -> CoreGraphics.CGImage?
+  @objc deinit
+}
 extension UIColor {
   public class func uiColor(from rgbValue: Swift.UInt, alpha: CoreGraphics.CGFloat = 1.0) -> UIKit.UIColor
 }
+extension AnimationView {
+  convenience public init(name: Swift.String, bundle: Foundation.Bundle = Bundle.main, imageProvider: ADCBGamification.AnimationImageProvider? = nil, animationCache: ADCBGamification.AnimationCacheProvider? = LRUAnimationCache.sharedCache)
+  convenience public init(filePath: Swift.String, imageProvider: ADCBGamification.AnimationImageProvider? = nil, animationCache: ADCBGamification.AnimationCacheProvider? = LRUAnimationCache.sharedCache)
+  convenience public init(url: Foundation.URL, imageProvider: ADCBGamification.AnimationImageProvider? = nil, closure: @escaping ADCBGamification.AnimationView.DownloadClosure, animationCache: ADCBGamification.AnimationCacheProvider? = LRUAnimationCache.sharedCache)
+  public typealias DownloadClosure = (Swift.Error?) -> Swift.Void
+}
 @_inheritsConvenienceInitializers @objc public class IQPreviousNextView : UIKit.UIView {
-  @objc deinit
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+final public class GradientValueProvider : ADCBGamification.AnyValueProvider {
+  public typealias ColorsValueBlock = (CoreGraphics.CGFloat) -> [ADCBGamification.Color]
+  public typealias ColorLocationsBlock = (CoreGraphics.CGFloat) -> [Swift.Double]
+  final public var colors: [ADCBGamification.Color] {
+    get
+    set
+  }
+  final public var locations: [Swift.Double] {
+    get
+    set
+  }
+  public init(block: @escaping ADCBGamification.GradientValueProvider.ColorsValueBlock, locations: ADCBGamification.GradientValueProvider.ColorLocationsBlock? = nil)
+  public init(_ colors: [ADCBGamification.Color], locations: [Swift.Double] = [])
+  final public var valueType: Any.Type {
+    get
+  }
+  final public func hasUpdate(frame: CoreGraphics.CGFloat) -> Swift.Bool
+  final public func value(frame: CoreGraphics.CGFloat) -> Any
+  @objc deinit
+}
+extension Animation {
+  public static func named(_ name: Swift.String, bundle: Foundation.Bundle = Bundle.main, subdirectory: Swift.String? = nil, animationCache: ADCBGamification.AnimationCacheProvider? = nil) -> ADCBGamification.Animation?
+  public static func filepath(_ filepath: Swift.String, animationCache: ADCBGamification.AnimationCacheProvider? = nil) -> ADCBGamification.Animation?
+  public typealias DownloadClosure = (ADCBGamification.Animation?) -> Swift.Void
+  public static func loadedFrom(url: Foundation.URL, closure: @escaping ADCBGamification.Animation.DownloadClosure, animationCache: ADCBGamification.AnimationCacheProvider?)
+  final public func progressTime(forMarker named: Swift.String) -> ADCBGamification.AnimationProgressTime?
+  final public func frameTime(forMarker named: Swift.String) -> ADCBGamification.AnimationFrameTime?
+  final public func progressTime(forFrame frameTime: ADCBGamification.AnimationFrameTime) -> ADCBGamification.AnimationProgressTime
+  final public func frameTime(forProgress progressTime: ADCBGamification.AnimationProgressTime) -> ADCBGamification.AnimationFrameTime
+  final public func time(forFrame frameTime: ADCBGamification.AnimationFrameTime) -> Foundation.TimeInterval
+  final public func frameTime(forTime time: Foundation.TimeInterval) -> ADCBGamification.AnimationFrameTime
+  final public var duration: Foundation.TimeInterval {
+    get
+  }
+  final public var bounds: CoreGraphics.CGRect {
+    get
+  }
+  final public var size: CoreGraphics.CGSize {
+    get
+  }
+}
+public typealias AnimationFrameTime = CoreGraphics.CGFloat
+public typealias AnimationProgressTime = CoreGraphics.CGFloat
+@objc @_inheritsConvenienceInitializers open class LottieView : UIKit.UIView {
+  @objc override dynamic open func didMoveToWindow()
+  @objc override dynamic open var contentMode: UIKit.UIView.ContentMode {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic open func layoutSubviews()
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol AnimationCacheProvider {
+  func animation(forKey: Swift.String) -> ADCBGamification.Animation?
+  func setAnimation(_ animation: ADCBGamification.Animation, forKey: Swift.String)
+  func clearCache()
+}
+extension Vector1D : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension Vector3D : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension Vector3D {
+  public var pointValue: CoreGraphics.CGPoint {
+    get
+  }
+  public var sizeValue: CoreGraphics.CGSize {
+    get
+  }
 }
 @objc extension UIScrollView {
   @objc dynamic public var shouldIgnoreScrollingAdjustment: Swift.Bool {
@@ -355,6 +874,18 @@ extension UIColor {
     @objc get
     @objc set(newValue)
   }
+}
+extension CALayer {
+  public func logLayerTree(withIndent: Swift.Int = 0)
+}
+public class LRUAnimationCache : ADCBGamification.AnimationCacheProvider {
+  public init()
+  public func clearCache()
+  public static let sharedCache: ADCBGamification.LRUAnimationCache
+  public var cacheSize: Swift.Int
+  public func animation(forKey: Swift.String) -> ADCBGamification.Animation?
+  public func setAnimation(_ animation: ADCBGamification.Animation, forKey: Swift.String)
+  @objc deinit
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class IQKeyboardManager : ObjectiveC.NSObject {
   @objc public static let shared: ADCBGamification.IQKeyboardManager
@@ -423,10 +954,10 @@ public class CarnivalWheelSlice : ADCBGamification.FortuneWheelSliceProtocol {
     case babyBlue
     case deepBlue
     public static func == (a: ADCBGamification.CarnivalWheelSlice.Style, b: ADCBGamification.CarnivalWheelSlice.Style) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public var title: Swift.String
   public var degree: CoreGraphics.CGFloat
@@ -455,6 +986,26 @@ extension IQKeyboardManager {
     @objc get
   }
   public typealias UIViewAnimationOptions = UIKit.UIView.AnimationOptions
+}
+public protocol AnyValueProvider {
+  var valueType: Any.Type { get }
+  func hasUpdate(frame: ADCBGamification.AnimationFrameTime) -> Swift.Bool
+  func value(frame: ADCBGamification.AnimationFrameTime) -> Any
+}
+final public class FloatValueProvider : ADCBGamification.AnyValueProvider {
+  public typealias CGFloatValueBlock = (CoreGraphics.CGFloat) -> CoreGraphics.CGFloat
+  final public var float: CoreGraphics.CGFloat {
+    get
+    set
+  }
+  public init(block: @escaping ADCBGamification.FloatValueProvider.CGFloatValueBlock)
+  public init(_ float: CoreGraphics.CGFloat)
+  final public var valueType: Any.Type {
+    get
+  }
+  final public func hasUpdate(frame: CoreGraphics.CGFloat) -> Swift.Bool
+  final public func value(frame: CoreGraphics.CGFloat) -> Any
+  @objc deinit
 }
 extension IQKeyboardManager {
   @objc dynamic public var movedDistance: CoreGraphics.CGFloat {
@@ -502,6 +1053,36 @@ public let kIQUseDefaultKeyboardDistance: CoreGraphics.CGFloat
   open func startAnimating(fininshIndex: Swift.Int = 0, offset: CoreGraphics.CGFloat, _ completion: ((Swift.Bool) -> Swift.Void)?)
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
+}
+@objc @_inheritsConvenienceInitializers final public class AnimatedButton : ADCBGamification.AnimatedControl {
+  final public func setPlayRange(fromProgress: ADCBGamification.AnimationProgressTime, toProgress: ADCBGamification.AnimationProgressTime, event: UIKit.UIControl.Event)
+  final public func setPlayRange(fromMarker fromName: Swift.String, toMarker toName: Swift.String, event: UIKit.UIControl.Event)
+  override public init(animation: ADCBGamification.Animation)
+  @objc override dynamic public init()
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override final public func beginTracking(_ touch: UIKit.UITouch, with event: UIKit.UIEvent?) -> Swift.Bool
+  @objc override final public func endTracking(_ touch: UIKit.UITouch?, with event: UIKit.UIEvent?)
+  @objc deinit
+}
+public enum CoordinateSpace : Swift.Int, Swift.Codable {
+  case type2d
+  case type3d
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+final public class Animation : Swift.Codable {
+  final public let startFrame: ADCBGamification.AnimationFrameTime
+  final public let endFrame: ADCBGamification.AnimationFrameTime
+  final public let framerate: Swift.Double
+  final public var markerNames: [Swift.String] {
+    get
+  }
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  final public func encode(to encoder: Swift.Encoder) throws
 }
 @objc public class IQBarButtonItemConfiguration : ObjectiveC.NSObject {
   public typealias UIBarButtonSystemItem = UIKit.UIBarButtonItem.SystemItem
@@ -564,10 +1145,28 @@ public let kIQUseDefaultKeyboardDistance: CoreGraphics.CGFloat
   @objc dynamic public func parentContainerViewController() -> UIKit.UIViewController?
   @objc dynamic public func superviewOfClassType(_ classType: UIKit.UIView.Type, belowView: UIKit.UIView? = nil) -> UIKit.UIView?
 }
+public protocol AnimationImageProvider {
+  func imageForAsset(asset: ADCBGamification.ImageAsset) -> CoreGraphics.CGImage?
+}
+extension ADCBGamification.LayerType : Swift.Equatable {}
+extension ADCBGamification.LayerType : Swift.Hashable {}
+extension ADCBGamification.LayerType : Swift.RawRepresentable {}
+extension ADCBGamification.MatteType : Swift.Equatable {}
+extension ADCBGamification.MatteType : Swift.Hashable {}
+extension ADCBGamification.MatteType : Swift.RawRepresentable {}
+extension ADCBGamification.BlendMode : Swift.Equatable {}
+extension ADCBGamification.BlendMode : Swift.Hashable {}
+extension ADCBGamification.BlendMode : Swift.RawRepresentable {}
+extension ADCBGamification.AnimatedSwitch.CancelBehavior : Swift.Equatable {}
+extension ADCBGamification.AnimatedSwitch.CancelBehavior : Swift.Hashable {}
+extension ADCBGamification.ColorFormatDenominator : Swift.Equatable {}
+extension ADCBGamification.ColorFormatDenominator : Swift.Hashable {}
 extension ADCBGamification.FortuneWheelSlice.Style : Swift.Equatable {}
 extension ADCBGamification.FortuneWheelSlice.Style : Swift.Hashable {}
 extension ADCBGamification.GameAction : Swift.Equatable {}
 extension ADCBGamification.GameAction : Swift.Hashable {}
+extension ADCBGamification.LottieBackgroundBehavior : Swift.Equatable {}
+extension ADCBGamification.LottieBackgroundBehavior : Swift.Hashable {}
 extension ADCBGamification.IQAutoToolbarManageBehaviour : Swift.Equatable {}
 extension ADCBGamification.IQAutoToolbarManageBehaviour : Swift.Hashable {}
 extension ADCBGamification.IQAutoToolbarManageBehaviour : Swift.RawRepresentable {}
@@ -579,3 +1178,6 @@ extension ADCBGamification.IQEnableMode : Swift.Hashable {}
 extension ADCBGamification.IQEnableMode : Swift.RawRepresentable {}
 extension ADCBGamification.CarnivalWheelSlice.Style : Swift.Equatable {}
 extension ADCBGamification.CarnivalWheelSlice.Style : Swift.Hashable {}
+extension ADCBGamification.CoordinateSpace : Swift.Equatable {}
+extension ADCBGamification.CoordinateSpace : Swift.Hashable {}
+extension ADCBGamification.CoordinateSpace : Swift.RawRepresentable {}
