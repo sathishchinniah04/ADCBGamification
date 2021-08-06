@@ -267,6 +267,18 @@ public enum GameAction {
     get
   }
 }
+public enum GameLanguage : Swift.String, Swift.CaseIterable {
+  case EN, AR
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [ADCBGamification.GameLanguage]
+  public typealias RawValue = Swift.String
+  public static var allCases: [ADCBGamification.GameLanguage] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers public class Game {
   public static func open(controller: UIKit.UIViewController, msisdn: Swift.String, language: Swift.String, gameType: Swift.String, gameId: Swift.String?, complition: ((ADCBGamification.GameAction) -> Swift.Void)?)
   public static func openGameList(controller: UIKit.UIViewController, msisdn: Swift.String, language: Swift.String, complition: ((ADCBGamification.GameAction) -> Swift.Void)?)
@@ -1165,6 +1177,9 @@ extension ADCBGamification.FortuneWheelSlice.Style : Swift.Equatable {}
 extension ADCBGamification.FortuneWheelSlice.Style : Swift.Hashable {}
 extension ADCBGamification.GameAction : Swift.Equatable {}
 extension ADCBGamification.GameAction : Swift.Hashable {}
+extension ADCBGamification.GameLanguage : Swift.Equatable {}
+extension ADCBGamification.GameLanguage : Swift.Hashable {}
+extension ADCBGamification.GameLanguage : Swift.RawRepresentable {}
 extension ADCBGamification.LottieBackgroundBehavior : Swift.Equatable {}
 extension ADCBGamification.LottieBackgroundBehavior : Swift.Hashable {}
 extension ADCBGamification.IQAutoToolbarManageBehaviour : Swift.Equatable {}

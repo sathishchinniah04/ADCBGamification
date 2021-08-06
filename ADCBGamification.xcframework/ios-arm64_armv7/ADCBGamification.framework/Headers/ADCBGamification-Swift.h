@@ -733,6 +733,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 
 
 
+
 @interface UIImage (SWIFT_EXTENSION(ADCBGamification))
 + (UIImage * _Nullable)keyboardLeftImage SWIFT_WARN_UNUSED_RESULT;
 + (UIImage * _Nullable)keyboardRightImage SWIFT_WARN_UNUSED_RESULT;
@@ -745,6 +746,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 
 
 
+
 @interface UIScrollView (SWIFT_EXTENSION(ADCBGamification))
 /// If YES, then scrollview will ignore scrolling (simply not scroll it) for adjusting textfield position. Default is NO.
 @property (nonatomic) BOOL shouldIgnoreScrollingAdjustment;
@@ -753,6 +755,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 /// To set customized distance from keyboard for textField/textView. Can’t be less than zero
 @property (nonatomic) BOOL shouldRestoreScrollViewContentOffset;
 @end
+
 
 
 
@@ -1564,6 +1567,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 
 
 
+
 @interface UIImage (SWIFT_EXTENSION(ADCBGamification))
 + (UIImage * _Nullable)keyboardLeftImage SWIFT_WARN_UNUSED_RESULT;
 + (UIImage * _Nullable)keyboardRightImage SWIFT_WARN_UNUSED_RESULT;
@@ -1576,6 +1580,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 
 
 
+
 @interface UIScrollView (SWIFT_EXTENSION(ADCBGamification))
 /// If YES, then scrollview will ignore scrolling (simply not scroll it) for adjusting textfield position. Default is NO.
 @property (nonatomic) BOOL shouldIgnoreScrollingAdjustment;
@@ -1584,6 +1589,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 /// To set customized distance from keyboard for textField/textView. Can’t be less than zero
 @property (nonatomic) BOOL shouldRestoreScrollViewContentOffset;
 @end
+
 
 
 
