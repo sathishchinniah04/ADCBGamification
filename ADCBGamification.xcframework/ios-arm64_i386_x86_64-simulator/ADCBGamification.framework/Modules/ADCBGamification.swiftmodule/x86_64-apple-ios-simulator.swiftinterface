@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
 // swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ADCBGamification
 @_exported import ADCBGamification
 import Contacts
@@ -64,8 +64,8 @@ public enum LayerType : Swift.Int, Swift.Codable {
   case shape
   case text
   public init(from decoder: Swift.Decoder) throws
-  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
@@ -75,8 +75,8 @@ public enum MatteType : Swift.Int, Swift.Codable {
   case add
   case invert
   case unknown
-  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
@@ -98,8 +98,8 @@ public enum BlendMode : Swift.Int, Swift.Codable {
   case saturation
   case color
   case luminosity
-  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
@@ -164,10 +164,10 @@ extension IQKeyboardReturnKeyHandler : UIKit.UITextViewDelegate {
     case reverse
     case none
     public static func == (a: ADCBGamification.AnimatedSwitch.CancelBehavior, b: ADCBGamification.AnimatedSwitch.CancelBehavior) -> Swift.Bool
-    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
+    public func hash(into hasher: inout Swift.Hasher)
   }
   final public var isOn: Swift.Bool {
     get
@@ -213,10 +213,10 @@ public enum ColorFormatDenominator {
   case OneHundred
   case TwoFiftyFive
   public static func == (a: ADCBGamification.ColorFormatDenominator, b: ADCBGamification.ColorFormatDenominator) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
 }
 public struct Color {
   public var r: Swift.Double
@@ -226,19 +226,19 @@ public struct Color {
   public init(r: Swift.Double, g: Swift.Double, b: Swift.Double, a: Swift.Double, denominator: ADCBGamification.ColorFormatDenominator = .One)
 }
 @objc @_inheritsConvenienceInitializers final public class AnimationSubview : UIKit.UIView {
+  @objc deinit
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc deinit
 }
 public class FortuneWheelSlice : ADCBGamification.FortuneWheelSliceProtocol {
   public enum Style {
     case dark
     case light
     public static func == (a: ADCBGamification.FortuneWheelSlice.Style, b: ADCBGamification.FortuneWheelSlice.Style) -> Swift.Bool
-    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
+    public func hash(into hasher: inout Swift.Hasher)
   }
   public var title: Swift.String
   public var degree: CoreGraphics.CGFloat
@@ -262,20 +262,20 @@ public enum GameAction {
   case closeButton
   case spinReward
   public static func == (a: ADCBGamification.GameAction, b: ADCBGamification.GameAction) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum GameLanguage : Swift.String, Swift.CaseIterable {
   case EN, AR
-  public init?(rawValue: Swift.String)
-  public typealias AllCases = [ADCBGamification.GameLanguage]
   public typealias RawValue = Swift.String
-  public static var allCases: [ADCBGamification.GameLanguage] {
+  public var rawValue: Swift.String {
     get
   }
-  public var rawValue: Swift.String {
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [ADCBGamification.GameLanguage]
+  public static var allCases: [ADCBGamification.GameLanguage] {
     get
   }
 }
@@ -331,10 +331,10 @@ public enum LottieBackgroundBehavior {
   case pauseAndRestore
   case forceFinish
   public static func == (a: ADCBGamification.LottieBackgroundBehavior, b: ADCBGamification.LottieBackgroundBehavior) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum LottieLoopMode {
   case playOnce
@@ -438,8 +438,8 @@ extension LottieLoopMode : Swift.Equatable {
   case bySubviews
   case byTag
   case byPosition
-  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
@@ -448,8 +448,8 @@ extension LottieLoopMode : Swift.Equatable {
   case `default`
   case alwaysHide
   case alwaysShow
-  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
@@ -458,8 +458,8 @@ extension LottieLoopMode : Swift.Equatable {
   case `default`
   case enabled
   case disabled
-  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
@@ -529,14 +529,14 @@ extension Color : Swift.Codable {
   @objc public init(keypath: Swift.String)
   @objc public init(keys: [Swift.String])
   final public let animationKeypath: ADCBGamification.AnimationKeypath
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 public class Asset : Swift.Codable {
   final public let id: Swift.String
   required public init(from decoder: Swift.Decoder) throws
-  @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
 }
 final public class SizeValueProvider : ADCBGamification.AnyValueProvider {
   public typealias SizeValueBlock = (CoreGraphics.CGFloat) -> CoreGraphics.CGSize
@@ -686,9 +686,9 @@ extension UIColor {
   @objc override dynamic open func draw(in ctx: CoreGraphics.CGContext)
   open func drawCanvas(mainFrame: CoreGraphics.CGRect)
   open func drawSlice(withIndex index: Swift.Int, in context: CoreGraphics.CGContext, forSlice slice: ADCBGamification.FortuneWheelSliceProtocol, rotation: CoreGraphics.CGFloat)
+  @objc deinit
   @objc override dynamic public init()
   @objc override dynamic public init(layer: Any)
-  @objc deinit
 }
 @_hasMissingDesignatedInitializers public class TTUtils {
   public class func uiColor(from rgbValue: Swift.UInt, alpha: CoreGraphics.CGFloat = 1.0) -> UIKit.UIColor
@@ -709,8 +709,8 @@ public struct Vector3D {
 }
 @objc final public class CompatibleAnimation : ObjectiveC.NSObject {
   @objc public init(name: Swift.String, bundle: Foundation.Bundle = Bundle.main)
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class CompatibleAnimationView : UIKit.UIView {
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
@@ -794,9 +794,9 @@ extension AnimationView {
   public typealias DownloadClosure = (Swift.Error?) -> Swift.Void
 }
 @_inheritsConvenienceInitializers @objc public class IQPreviousNextView : UIKit.UIView {
+  @objc deinit
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc deinit
 }
 final public class GradientValueProvider : ADCBGamification.AnyValueProvider {
   public typealias ColorsValueBlock = (CoreGraphics.CGFloat) -> [ADCBGamification.Color]
@@ -966,10 +966,10 @@ public class CarnivalWheelSlice : ADCBGamification.FortuneWheelSliceProtocol {
     case babyBlue
     case deepBlue
     public static func == (a: ADCBGamification.CarnivalWheelSlice.Style, b: ADCBGamification.CarnivalWheelSlice.Style) -> Swift.Bool
-    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
+    public func hash(into hasher: inout Swift.Hasher)
   }
   public var title: Swift.String
   public var degree: CoreGraphics.CGFloat
@@ -1079,8 +1079,8 @@ public let kIQUseDefaultKeyboardDistance: CoreGraphics.CGFloat
 public enum CoordinateSpace : Swift.Int, Swift.Codable {
   case type2d
   case type3d
-  public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
   public var rawValue: Swift.Int {
     get
   }
