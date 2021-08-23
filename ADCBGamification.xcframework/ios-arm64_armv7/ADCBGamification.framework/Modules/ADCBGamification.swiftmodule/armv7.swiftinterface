@@ -259,7 +259,7 @@ public class FortuneWheelSlice : ADCBGamification.FortuneWheelSliceProtocol {
 }
 public enum GameAction {
   case backButton
-  case closeButton
+  case homeAction
   case spinReward
   public static func == (a: ADCBGamification.GameAction, b: ADCBGamification.GameAction) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
@@ -325,6 +325,9 @@ final public class PointValueProvider : ADCBGamification.AnyValueProvider {
   final public func hasUpdate(frame: CoreGraphics.CGFloat) -> Swift.Bool
   final public func value(frame: CoreGraphics.CGFloat) -> Any
   @objc deinit
+}
+extension UIFont {
+  public static let loadMyFonts: ()
 }
 public enum LottieBackgroundBehavior {
   case stop

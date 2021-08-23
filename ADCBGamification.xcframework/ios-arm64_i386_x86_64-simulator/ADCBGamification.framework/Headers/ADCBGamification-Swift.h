@@ -734,6 +734,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 
 
 
+
 @interface UIImage (SWIFT_EXTENSION(ADCBGamification))
 + (UIImage * _Nullable)keyboardLeftImage SWIFT_WARN_UNUSED_RESULT;
 + (UIImage * _Nullable)keyboardRightImage SWIFT_WARN_UNUSED_RESULT;
@@ -1568,6 +1569,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 
 
 
+
 @interface UIImage (SWIFT_EXTENSION(ADCBGamification))
 + (UIImage * _Nullable)keyboardLeftImage SWIFT_WARN_UNUSED_RESULT;
 + (UIImage * _Nullable)keyboardRightImage SWIFT_WARN_UNUSED_RESULT;
@@ -2395,6 +2397,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 - (void)drawRect:(CGRect)rect;
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
+
 
 
 
