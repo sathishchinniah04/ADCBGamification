@@ -735,6 +735,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 
 
 
+
 @interface UIImage (SWIFT_EXTENSION(ADCBGamification))
 + (UIImage * _Nullable)keyboardLeftImage SWIFT_WARN_UNUSED_RESULT;
 + (UIImage * _Nullable)keyboardRightImage SWIFT_WARN_UNUSED_RESULT;
@@ -756,6 +757,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 /// To set customized distance from keyboard for textField/textView. Can’t be less than zero
 @property (nonatomic) BOOL shouldRestoreScrollViewContentOffset;
 @end
+
 
 
 
@@ -816,6 +818,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 - (void)addPreviousNextRightOnKeyboardWithTarget:(id _Nullable)target rightButtonImage:(UIImage * _Nonnull)rightButtonImage previousAction:(SEL _Nonnull)previousAction nextAction:(SEL _Nonnull)nextAction rightButtonAction:(SEL _Nonnull)rightButtonAction titleText:(NSString * _Nullable)titleText;
 - (void)addPreviousNextRightOnKeyboardWithTarget:(id _Nullable)target rightButtonTitle:(NSString * _Nonnull)rightButtonTitle previousAction:(SEL _Nonnull)previousAction nextAction:(SEL _Nonnull)nextAction rightButtonAction:(SEL _Nonnull)rightButtonAction titleText:(NSString * _Nullable)titleText;
 @end
+
 
 
 @class NSLayoutConstraint;
@@ -1570,6 +1573,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 
 
 
+
 @interface UIImage (SWIFT_EXTENSION(ADCBGamification))
 + (UIImage * _Nullable)keyboardLeftImage SWIFT_WARN_UNUSED_RESULT;
 + (UIImage * _Nullable)keyboardRightImage SWIFT_WARN_UNUSED_RESULT;
@@ -1591,6 +1595,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 /// To set customized distance from keyboard for textField/textView. Can’t be less than zero
 @property (nonatomic) BOOL shouldRestoreScrollViewContentOffset;
 @end
+
 
 
 
@@ -1651,6 +1656,7 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 - (void)addPreviousNextRightOnKeyboardWithTarget:(id _Nullable)target rightButtonImage:(UIImage * _Nonnull)rightButtonImage previousAction:(SEL _Nonnull)previousAction nextAction:(SEL _Nonnull)nextAction rightButtonAction:(SEL _Nonnull)rightButtonAction titleText:(NSString * _Nullable)titleText;
 - (void)addPreviousNextRightOnKeyboardWithTarget:(id _Nullable)target rightButtonTitle:(NSString * _Nonnull)rightButtonTitle previousAction:(SEL _Nonnull)previousAction nextAction:(SEL _Nonnull)nextAction rightButtonAction:(SEL _Nonnull)rightButtonAction titleText:(NSString * _Nullable)titleText;
 @end
+
 
 
 @class NSLayoutConstraint;

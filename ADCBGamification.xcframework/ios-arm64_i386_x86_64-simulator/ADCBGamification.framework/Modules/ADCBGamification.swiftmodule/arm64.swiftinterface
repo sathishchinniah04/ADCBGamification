@@ -280,8 +280,22 @@ public enum GameLanguage : Swift.String, Swift.CaseIterable {
   }
 }
 @_hasMissingDesignatedInitializers public class Game {
+  public enum GameNames : Swift.String, Swift.CaseIterable {
+    case SpinNWin
+    case PredictNWin
+    case ReferNWin
+    public init?(rawValue: Swift.String)
+    public typealias AllCases = [ADCBGamification.Game.GameNames]
+    public typealias RawValue = Swift.String
+    public static var allCases: [ADCBGamification.Game.GameNames] {
+      get
+    }
+    public var rawValue: Swift.String {
+      get
+    }
+  }
   public static func dismissController()
-  public static func open(controller: UIKit.UIViewController, msisdn: Swift.String, language: Swift.String, gameType: Swift.String, gameId: Swift.String?, complition: ((ADCBGamification.GameAction) -> Swift.Void)?)
+  public static func open(controller: UIKit.UIViewController, msisdn: Swift.String, language: Swift.String, gameType: Swift.String, complition: ((ADCBGamification.GameAction) -> Swift.Void)?)
   public static func openGameList(controller: UIKit.UIViewController, msisdn: Swift.String, language: Swift.String, complition: ((ADCBGamification.GameAction) -> Swift.Void)?)
   @objc deinit
 }
@@ -791,6 +805,9 @@ public class BundleImageProvider : ADCBGamification.AnimationImageProvider {
 extension UIColor {
   public class func uiColor(from rgbValue: Swift.UInt, alpha: CoreGraphics.CGFloat = 1.0) -> UIKit.UIColor
 }
+extension UIView {
+  public func addBlur(style: UIKit.UIBlurEffect.Style = .extraLight) -> UIKit.UIVisualEffectView
+}
 extension AnimationView {
   convenience public init(name: Swift.String, bundle: Foundation.Bundle = Bundle.main, imageProvider: ADCBGamification.AnimationImageProvider? = nil, animationCache: ADCBGamification.AnimationCacheProvider? = LRUAnimationCache.sharedCache)
   convenience public init(filePath: Swift.String, imageProvider: ADCBGamification.AnimationImageProvider? = nil, animationCache: ADCBGamification.AnimationCacheProvider? = LRUAnimationCache.sharedCache)
@@ -1184,6 +1201,9 @@ extension ADCBGamification.GameAction : Swift.Hashable {}
 extension ADCBGamification.GameLanguage : Swift.Equatable {}
 extension ADCBGamification.GameLanguage : Swift.Hashable {}
 extension ADCBGamification.GameLanguage : Swift.RawRepresentable {}
+extension ADCBGamification.Game.GameNames : Swift.Equatable {}
+extension ADCBGamification.Game.GameNames : Swift.Hashable {}
+extension ADCBGamification.Game.GameNames : Swift.RawRepresentable {}
 extension ADCBGamification.LottieBackgroundBehavior : Swift.Equatable {}
 extension ADCBGamification.LottieBackgroundBehavior : Swift.Hashable {}
 extension ADCBGamification.IQAutoToolbarManageBehaviour : Swift.Equatable {}

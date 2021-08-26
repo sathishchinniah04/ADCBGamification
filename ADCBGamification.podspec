@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'ADCBGamification'
-  spec.version      = '0.1.32'
+  spec.version      = '0.1.33'
   spec.summary      = 'ADCBGamification framework'
   spec.description  = <<-DESC
 	import ADCBGamification framework and implement methods
