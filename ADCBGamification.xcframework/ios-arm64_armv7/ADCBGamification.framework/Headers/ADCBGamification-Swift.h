@@ -762,6 +762,8 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 
 
 
+
+
 @interface UIView (SWIFT_EXTENSION(ADCBGamification))
 /// To set customized distance from keyboard for textField/textView. Can’t be less than zero
 @property (nonatomic) CGFloat keyboardDistanceFromTextField;
@@ -1596,6 +1598,8 @@ SWIFT_CLASS("_TtC16ADCBGamification14TTFortuneWheel")
 /// To set customized distance from keyboard for textField/textView. Can’t be less than zero
 @property (nonatomic) BOOL shouldRestoreScrollViewContentOffset;
 @end
+
+
 
 
 
